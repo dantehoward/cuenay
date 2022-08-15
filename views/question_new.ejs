@@ -1,0 +1,34 @@
+<h1>New question</h1>
+
+<p>Write a new question for instructors and students to answer.</p>
+
+<div class="card">
+<div class="card-body">
+<form 
+    id="new-question-form" 
+    action="<%= `/c/${course.course_id}/ask` %>" 
+    method="POST"
+    >
+    <div class="mb-3">
+        <label for="new-question-title" class="form-label fw-bold">Title</label>
+        <input 
+            type="text" 
+            name="question_title" 
+            id="new-question-title" 
+            class="form-control"
+            placeholder="a short summary of your question">
+    </div>
+    <div class="mb-3">
+        <label for="new-question-body" class="form-label fw-bold">Body</label>
+        <textarea 
+            id="new-question-body" 
+            name="question_body" 
+            class="form-control" 
+            rows="4"
+            ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ask question</button>
+    <a href="/c/<%= course.course_id %>" class="btn btn-secondary">Cancel</a>
+</form>
+</div>
+</div>

@@ -1,0 +1,24 @@
+<h1>Extra Credit for <%= course.title %></h1>
+
+<p>
+    These students have been consistently 
+    active on Cuenay during the course term. 
+    They are eligible for extra credit. 
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Weeks active</th>
+    <tr>
+    </thead>
+    <tbody>
+    <% ecTable.forEach((user, i) => { %>
+       <tr>
+       <td><%= user.user_id %></td>
+       <td><%= user.num_questions_answered %></td>
+       </tr>
+    <% }) %>
+    </tbody>
+</table>

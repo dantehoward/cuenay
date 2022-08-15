@@ -1,0 +1,67 @@
+<div id="sidebar" class="h-100 border-end p-3 col-4 bg-light" style="overflow-y: scroll;">
+     <select id="course-select" class="form-select" class="bg-white">
+     	<%
+	const courseList = Array.from(courses);
+	courseList.sort((a,b)=>(a.course_id<b.course_id));
+	%>
+	<% courseList.forEach(c => { %>
+	   <option
+		value="<%= c.course_id %>"
+		<%= (c.course_id == course.course_id) ? 'selected' : '' %>
+	   >
+		<%= c.title %>
+	   </option>
+	<% }); %>
+     </select>
+     <div class="mt-2">
+	<a href="/c/<%= course.course_id %>/ask" class="btn btn-sm btn-primary">Ask a question</a>
+	<button 
+		id="question-search-button" 
+		type="button" 
+		title="search"
+		class="btn btn-sm btn-light border"
+		>
+		🔎
+	</button>
+     </div>
+     <p class="fw-bold mt-3">Recent Questions</p>
+     <ol class="list-unstyled">
+     <% recentQuestions.forEach((question) => { %>
+	<li class="text-truncate mb-3">
+		<a href="/q/<%= question.question_id %>" class="text-decoration-none" title="<%= question.title %>">
+		<span><b><%= question.title %></b></span>
+		<br>
+		<span><%= question.body %></span>
+		<br>
+		<small>
+			<%- include('_user_name', {
+				user_id: question.user_id,
+				full_name: question.user_full_name,
+				badge: question.user_badge,
+			}); %>
+			&#8226;
+			<%= question.count_answers 
+				? question.count_answers 
+				: 'No' %>
+			answers
+		</small>
+		</a>
+	</li>
+     <% }); %>
+     </ol>
+</div>
+<script>
+const sel = document.getElementById('course-select');
+sel.addEventListener('input', function(e) {
+    course_id = e.target.value;
+    window.location = `/c/${course_id}`;
+});
+</script>
+<script>
+const searchButton = document.getElementById('question-search-button');
+searchButton.addEventListener('click', function(e) {
+    console.log("help");
+    var query = prompt('Use keywords to search for a question').trim().split(' ').join('+');
+    window.location = `/c/<%= course.course_id %>/search?q=${query}`;
+});
+</script>

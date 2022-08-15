@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('_head.ejs') %>
+  </head>
+  <body class="vh-100 d-flex flex-column">
+    <%- include _header.ejs %>
+    <div class="d-flex align-items-stretch overflow-hidden flex-grow-1">
+      <%- include('_sidebar.ejs'); %>
+      <div class="flex-grow-1 h-100 p-4 d-flex justify-content-center" style="overflow-y: scroll;">
+	<main class="pb-5" style="width: 600px;">
+	  <%- include(page) %>
+	</main>
+      </div>
+    </div>
+  </body>
+</html>

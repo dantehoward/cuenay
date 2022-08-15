@@ -1,0 +1,64 @@
+<%# 
+    post_type: what type of post this represents
+    post_body: original post body
+    form_target: path to POST to
+%>
+<% const postIdsPrefix = post_type; %>
+<p id="<%= postIdsPrefix %>-display" class="mb-0">
+    <span id="<%= postIdsPrefix %>-original"><%= post_body _%></span>
+    <% if (post_missing) { %> There is no answer yet. <% } %>
+    <button id="<%= postIdsPrefix %>-button-edit" type="button" class="btn btn-sm btn-link p-0">
+        <% if (post_missing) { %>
+            Add one?
+        <% } else { %>
+            [ edit ]
+        <% } %>
+    </button>
+</p>
+<form id="<%= postIdsPrefix %>-form" action="<%= form_target %>" method="POST" style="display: none;">
+    <textarea id="<%= postIdsPrefix %>-edit-body" name="post_body" class="form-control mb-2"><%= post_body _%></textarea>
+    <input id="<%= postIdsPrefix %>-post-type" type="text" name="post_type" value="<%= post_type %>" style="display: none;">
+    <input id="<%= postIdsPrefix %>-action" type="text" name="action" value="<%= (post_missing) ? 'create' : 'update' %>" style="display: none;">
+    <div class="d-flex flex-direction-row justify-content-between">
+        <span>
+            <button id="<%= postIdsPrefix %>-submit" type="submit" class="btn btn-primary border me-1">
+                <% if (post_missing) { %>
+                    Submit
+                <% } else { %>
+                    Update
+                <% } %>
+            </button>
+            <button id="<%= postIdsPrefix %>-cancel" type="button" class="btn btn-light border">Cancel</button>
+        </span>
+        <button id="<%= postIdsPrefix %>-delete" type="submit" class="btn btn-danger border">Delete</button>
+    </div>
+</form>
+<script>
+
+    // i am so, so, so, so, so, so sorry.
+
+    const <%= postIdsPrefix %>postOriginal = document.getElementById(`<%= postIdsPrefix %>-original`);
+    const <%= postIdsPrefix %>postDisplay = document.getElementById(`<%= postIdsPrefix %>-display`);
+    const <%= postIdsPrefix %>editButton = document.getElementById(`<%= postIdsPrefix %>-button-edit`);
+    const <%= postIdsPrefix %>postForm = document.getElementById(`<%= postIdsPrefix %>-form`);
+    const <%= postIdsPrefix %>postBody = document.getElementById(`<%= postIdsPrefix %>-edit-body`);
+    const <%= postIdsPrefix %>formActionField = document.getElementById(`<%= postIdsPrefix %>-action`);
+    const <%= postIdsPrefix %>deleteButton = document.getElementById(`<%= postIdsPrefix %>-delete`);
+    const <%= postIdsPrefix %>cancelButton = document.getElementById(`<%= postIdsPrefix %>-cancel`);
+
+    <%= postIdsPrefix %>editButton.addEventListener('click', e => {
+        <%= postIdsPrefix %>postForm.style.display = 'initial';
+        <%= postIdsPrefix %>postDisplay.style.display = 'none';
+        <%= postIdsPrefix %>postBody.value = <%= postIdsPrefix %>postOriginal.innerText;
+    });
+
+    <%= postIdsPrefix %>cancelButton.addEventListener('click', e => {
+        <%= postIdsPrefix %>postForm.style.display = 'none';
+        <%= postIdsPrefix %>postDisplay.style.display = 'initial';
+        <%= postIdsPrefix %>postBody.value = <%= postIdsPrefix %>postOriginal.innerText;
+    });
+
+    <%= postIdsPrefix %>deleteButton.addEventListener('click', e => {
+        <%= postIdsPrefix %>formActionField.value = 'delete';
+    });
+</script>

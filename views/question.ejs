@@ -1,0 +1,66 @@
+<h1><%= question.title %></h1>
+<%- include('_post_about', {
+   user_id: question.user_id,
+   user_full_name: question.user_full_name,
+   user_badge: question.user_badge,
+   created_at: question.created_at,
+}); %>
+<!-- <form class="d-inline-block" action="/new_question/<%= question.question_id %>/delete" method="POST">
+   <button class="btn btn-sm btn-danger">Delete</button>
+</form> -->
+<%- include('_post_body', {
+   post_type: 'question',
+   post_body: question.body,
+   form_target: `/q/${question.question_id}`,
+   post_missing: false,
+}); %>
+
+<hr>
+
+<h2 class="h4">Instructors' answer</h2>
+<% if (instructorAnswer) { %>
+   <%- include('_post_about', {
+      user_id: instructorAnswer.user_id,
+      user_full_name: instructorAnswer.user_full_name,
+      user_badge: instructorAnswer.user_badge,
+      created_at: instructorAnswer.created_at,
+   }); %>
+   <%- include('_post_body', {
+      post_type: 'instructor_answer',
+      post_body: instructorAnswer.body,
+      form_target: `/q/${question.question_id}`,
+      post_missing: false,
+   }); %>
+<% } else { %>
+   <%- include('_post_body', {
+      post_type: 'instructor_answer',
+      post_body: '',
+      form_target: `/q/${question.question_id}`,
+      post_missing: true,
+   }); %>
+<% } %>
+
+<hr>
+
+<h2 class="h4">Students' answer</h2>
+<% if (studentAnswer) { %>
+   <%- include('_post_about', {
+      user_id: studentAnswer.user_id,
+      user_full_name: studentAnswer.user_full_name,
+      user_badge: studentAnswer.user_badge,
+      created_at: studentAnswer.created_at,
+   }); %>
+   <%- include('_post_body', {
+      post_type: 'student_answer',
+      post_body: studentAnswer.body,
+      form_target: `/q/${question.question_id}`,
+      post_missing: false,
+   }); %>
+<% } else { %>
+   <%- include('_post_body', {
+      post_type: 'student_answer',
+      post_body: '',
+      form_target: `/q/${question.question_id}`,
+      post_missing: true,
+   }); %>
+<% } %>

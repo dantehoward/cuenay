@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128mm"
+   height="128mm"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="avatar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-page="true"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-center="true"
+     inkscape:zoom="0.74208053"
+     inkscape:cx="294.44244"
+     inkscape:cy="363.84191"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(58.334137,-86.610718)">
+    <rect
+       style="fill:#afdde9;stroke:none;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round"
+       id="rect894"
+       width="128"
+       height="128"
+       x="-58.334137"
+       y="86.610718" />
+    <circle
+       style="fill:#2c89a0;stroke:none;stroke-width:1.00131;stroke-linecap:round;stroke-linejoin:round"
+       id="path1064"
+       cx="5.665864"
+       cy="135.70097"
+       r="28.768303" />
+    <circle
+       style="fill:#2c89a0;stroke:none;stroke-width:2.22759;stroke-linecap:round;stroke-linejoin:round"
+       id="circle1319"
+       cx="5.665864"
+       cy="235.46921"
+       r="64" />
+  </g>
+</svg>

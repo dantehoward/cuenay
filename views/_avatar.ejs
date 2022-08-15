@@ -1,0 +1,22 @@
+<%
+// quick hash to get deterministic colors
+// per different users
+// CC-BY-SA 4.0 - Barak and akseli on StackOverflow
+// https://stackoverflow.com/a/8831937/7169037
+function hashCode(input) {
+    var hash = 0;
+    for (var i = 0; i < input.length; i++) {
+        var char = input.charCodeAt(i);
+        hash = ((hash<<5)-hash)+char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return hash;
+}
+const hueRotation = hashCode(user_id) % 360;
+%>
+
+<img src="/avatar.svg"
+     height="<%= size %>"
+     width="<%= size %>"
+     class="rounded-circle"
+     style="filter: hue-rotate(<%= hueRotation %>deg);">

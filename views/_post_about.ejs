@@ -1,0 +1,16 @@
+<p class="text-secondary">
+    <%- include('_avatar.ejs', { 
+       size: '16px', 
+       user_id: user_id,
+    }); %>
+    <span class="fw-bold ms-1">
+       <%- include('_user_name.ejs', {
+          user_id: user_id, 
+          full_name: user_full_name,
+          badge: user_badge,
+       }); _%>
+    </span>
+    on
+    <% const date = new Date(created_at); %>
+    <%= date.toLocaleDateString('en-us', {weekday:'long', year:'numeric', month: 'short', day:'numeric'}) %>
+   </p>

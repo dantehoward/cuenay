@@ -1,0 +1,8 @@
+<h1>Search results</h1>
+<ol>
+<% searchResults.forEach((question, i) => { %>
+<li>
+   <a href="/q/<%= question.question_id %>"><%= question.title %></p></a>
+</li>
+<% }); %>
+</ol>
